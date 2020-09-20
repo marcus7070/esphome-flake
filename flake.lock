@@ -1,12 +1,28 @@
 {
   "nodes": {
+    "esphome": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1600569633,
+        "narHash": "sha256-86ASQlNw5uNWozwRSJxHX25V0L98xJT2HMqeSpHsQiw=",
+        "owner": "esphome",
+        "repo": "esphome",
+        "rev": "e3a6c9a6cf181a94d1634e838d4a35eaae555909",
+        "type": "github"
+      },
+      "original": {
+        "owner": "esphome",
+        "repo": "esphome",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1599510591,
-        "narHash": "sha256-rx6LLVncYqChBVVNopRY7tn59aP4qPqNjsAxt2X6/L8=",
+        "lastModified": 1600135862,
+        "narHash": "sha256-eHhiPQK2FY8Vr+AWpQuNjcId/sfrB+IVJJyuY3tuIwE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "61525137fd1002f6f2a5eb0ea27d480713362cd5",
+        "rev": "441a7da8080352881bb52f85e910d8855e83fc55",
         "type": "github"
       },
       "original": {
@@ -18,6 +34,7 @@
     },
     "root": {
       "inputs": {
+        "esphome": "esphome",
         "nixpkgs": "nixpkgs"
       }
     }

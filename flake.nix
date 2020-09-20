@@ -3,7 +3,13 @@
 
   inputs.nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
 
-  outputs = { self, nixpkgs }: {
+  inputs.esphome = rec {
+    url = "github:esphome/esphome?tag=v1.15.0b4";
+    flake = false;
+  };
+    
+
+  outputs = { self, nixpkgs, ... } @ inputs: {
 
     packages.x86_64-linux.esphome = 
       with import nixpkgs { system = "x86_64-linux"; };
@@ -11,7 +17,7 @@
         python = python3.override {
           packageOverrides = self: super: {
             protobuf = super.protobuf.override {
-              protobuf = protobuf3_12;
+              protobuf = protobuf3_13;
             };
           };
         };
@@ -20,12 +26,13 @@
         pname = "esphome";
         version = "1.15.0b4";
 
-        src = fetchFromGitHub {
-          owner = pname;
-          repo = pname;
-          rev = "v" + version;
-          sha256 = "sha256-cZMwdFoga/cETot+5BqtW6tZ+arU0cExCcK4rNRrg0o=";
-        };
+        # src = fetchFromGitHub {
+        #   owner = pname;
+        #   repo = pname;
+        #   rev = "v" + version;
+        #   sha256 = "sha256-cZMwdFoga/cETot+5BqtW6tZ+arU0cExCcK4rNRrg0o=";
+        # };
+        src = inputs.esphome;
 
         ESPHOME_USE_SUBPROCESS = "";
 
